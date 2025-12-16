@@ -3,7 +3,7 @@
 {
 
   imports = [
-     ./niri.nix
+     ./hyprland.nix
      ./x11.nix
   ];
 
