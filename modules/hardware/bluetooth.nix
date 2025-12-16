@@ -1,9 +1,17 @@
-# Bluetooth Configuration
-# Settings for Bluetooth device support and management
 { config, pkgs, ... }:
 
 {
-  # Bluetooth configuration will be added here
-  # Example: services.blueman.enable = true;
+  # ----------------------------------------------------------------------------
+  #  BLUETOOTH CONFIGURATION
+  # ----------------------------------------------------------------------------
   
+  # Enable Bluetooth hardware support
+  hardware.bluetooth.enable = true;
+  
+  # Power up the default controller on boot
+  hardware.bluetooth.powerOnBoot = true;
+
+  # Enable the Blueman manager (Recommended for Wayland/Hyprland/Niri)
+  # This provides the "blueman-manager" GUI and the system tray icon.
+  services.blueman.enable = true;
 }
