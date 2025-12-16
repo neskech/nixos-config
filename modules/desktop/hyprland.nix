@@ -4,7 +4,10 @@
 
 {
   # Import wayland environment settings
-  imports = [ ./wayland.nix ];
+  imports = [ 
+    ./wayland.nix
+    ./hyprland-config.nix
+ ];
 
   # Enable and configure Hyprland compositor
   programs.hyprland = {
