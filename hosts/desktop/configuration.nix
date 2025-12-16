@@ -1,24 +1,30 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
+# Desktop NixOS Configuration
+# Main system configuration file for desktop environment
+# Edit this file to customize your NixOS installation
+# Documentation: configuration.nix(5), https://search.nixos.org/options
 
 { config, lib, pkgs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ../../modules/desktop
-      ../../modules/hardware
-      ../../modules/programs
-      ../../modules/system
-    ];
+  imports = [
+    # Hardware auto-detected during installation
+    ./hardware-configuration.nix
+    
+    # Module imports for modular configuration
+    ../../modules/desktop     # Desktop environment settings
+    ../../modules/hardware    # Hardware-specific configurations
+    ../../modules/programs    # Application packages
+    ../../modules/system      # System core settings
+  ];
 
-  # Use the systemd-boot EFI boot loader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
+  # Configure EFI boot loader
+  boot.loader.systemd-boot.enable = true;        # Use systemd-boot for UEFI systems
+  boot.loader.efi.canTouchEfiVariables = true;   # Allow modifications to EFI variables
 
-  # networking.hostName = "nixos"; # Define your hostname.
+  # System hostname (optional - set if needed)
+  # networking.hostName = "nixos";
+  
+  # Allow installation of unfree software
   nixpkgs.config.allowUnfree = true;
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";

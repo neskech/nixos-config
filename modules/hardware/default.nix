@@ -1,9 +1,11 @@
+# Hardware Configuration Module
+# Aggregates hardware-specific configurations
 { config, pkgs, ... }:
 
 {
-
-   imports = [
-     ./nvidia.nix   
-   ];
+  # Import hardware modules
+  imports = [
+    ./nvidia.nix    # NVIDIA GPU configuration
+  ];
 
 }

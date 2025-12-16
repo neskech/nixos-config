@@ -1,9 +1,15 @@
+# X11 Display Server Configuration
+# Sets up X11 with GDM display manager and auto-login
 { config, pkgs, ... }:
 
 {
-
-   services.xserver.enable = true;
-   services.xserver.displayManager.gdm.enable = true;
-   services.displayManager.autoLogin.enable = true;
-   services.displayManager.autoLogin.user = "alice";
+  # Enable X11 display server
+  services.xserver.enable = true;
+  
+  # Use GNOME Display Manager for login screen
+  services.xserver.displayManager.gdm.enable = true;
+  
+  # Configure auto-login settings
+  services.displayManager.autoLogin.enable = true;
+  services.displayManager.autoLogin.user = "ness";
 }

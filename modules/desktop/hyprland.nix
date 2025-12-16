@@ -1,38 +1,35 @@
+# Hyprland Configuration
+# A dynamic tiling wayland compositor with extensive customization
 { config, pkgs, ... }:
 
 {
-
+  # Import wayland environment settings
   imports = [ ./wayland.nix ];
 
-  # Enable Hyprland
+  # Enable and configure Hyprland compositor
   programs.hyprland = {
     enable = true;
-    xwayland.enable = true; # Essential for Steam/games
+    xwayland.enable = true; # Required for Steam and game compatibility
   };
 
-  # Optional: Hint Electron apps to use Wayland
-  environment.sessionVariables = {
-    NIXOS_OZONE_WL = "1";
-  };
-
-  # Essential Hyprland Packages
+  # Essential packages for Hyprland desktop environment
   environment.systemPackages = with pkgs; [
-    # The Basics
-    kitty             # A good terminal (Default for Hyprland)
-    waybar            # The status bar
-    swww              # Wallpaper daemon
+    # Core desktop utilities
+    kitty             # Default terminal emulator for Hyprland
+    waybar            # Customizable status bar
+    swww              # Wallpaper daemon for wayland
     dunst             # Notification daemon
-    rofi      # App launcher (better than wofi for Hyprland usually)
+    rofi              # Application launcher and menu system
     
-    # Screenshots / Clipboard
-    grim              # Screenshot tool
-    slurp             # Select area for screenshot
-    wl-clipboard      # Clipboard manager
+    # Screenshot and clipboard management
+    grim              # Screenshot utility for wayland
+    slurp             # Interactive region selector for screenshots
+    wl-clipboard      # Wayland clipboard manager
   ];
   
-  # Configure xdg-portal (essential for screen sharing to work)
+  # Configure XDG portal for screen sharing and portals
   xdg.portal = {
     enable = true;
-    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; # GTK portal for wayland
   };
 }
