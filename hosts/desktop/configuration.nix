@@ -17,14 +17,10 @@
     ../../modules/system      # System core settings
   ];
 
-  # Configure EFI boot loader
-  boot.loader.systemd-boot.enable = true;        # Use systemd-boot for UEFI systems
-  boot.loader.efi.canTouchEfiVariables = true;   # Allow modifications to EFI variables
-
   # System hostname (optional - set if needed)
   # networking.hostName = "nixos";
   
-  # Allow installation of unfree software
+  # Allow installation of non-open-source software
   nixpkgs.config.allowUnfree = true;
   # Set your time zone.
   # time.timeZone = "Europe/Amsterdam";

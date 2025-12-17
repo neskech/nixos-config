@@ -7,7 +7,9 @@
   imports = [
     ./dev.nix           # Development tools
     ./desktop-apps.nix  # Desktop applications
-    ./terminal.nix      # Terminal utilities
+    ./terminal.nix      # Terminal environment
+    ./misc.nix          # Miscallenous utilities
+    ./libs.nix          # Libraries
   ];
 
 }

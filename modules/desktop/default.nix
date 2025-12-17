@@ -5,8 +5,7 @@
 {
   # Import desktop environment modules
   imports = [
-    ./hyprland.nix  # Hyprland wayland compositor
-    ./x11.nix       # X11 display server configuration
+    ./themes/hyprland
   ];
 
 }

@@ -7,6 +7,9 @@
   environment.systemPackages = with pkgs; [
     google-chrome   # Web browser
     discord         # Communication and messaging platform
+    vscode          # Visual Studio Code editor
+    spotify         # Music (spotify)
+    youtube-music   # Music (youtube)
   ];
 
 }

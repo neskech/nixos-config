@@ -3,22 +3,40 @@
 { config, pkgs, ... }:
 
 {
-  # Configure NVIDIA driver
+  # --- 1. The Drivers ---
+  services.xserver.videoDrivers = ["nvidia"];
+
   hardware.nvidia = {
-    modesetting.enable = true;                                    # Enable kernel mode setting
-    package = config.boot.kernelPackages.nvidiaPackages.stable;   # Use stable driver version
-    open = false;                                                 # Use proprietary drivers
+    # Modesetting is REQUIRED for Wayland/Hyprland and Plymouth.
+    modesetting.enable = true;
+
+    # Desktop GPUs don't need 'finegrained' power management.
+    powerManagement.enable = true;
+
+    # Use the NVidia open source kernel module (Best for RTX 20 series and newer).
+    open = true;
+
+    # Enable the Nvidia settings menu (nvidia-settings).
+    nvidiaSettings = true;
+
+    # Use the production driver version.
+    package = config.boot.kernelPackages.nvidiaPackages.production;
   };
 
-  # Enable hardware graphics acceleration
-  hardware.graphics = {
-    enable = true;
-    enable32Bit = true; # Required for Steam, Discord, and gaming
+  # --- 2. The initrd (Early Boot) ---
+  # These settings ensure the GPU driver loads as soon as the computer turns on.
+  boot.initrd = {
+    # Loads the Nvidia modules during the "Initial RAM Disk" phase.
+    kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+    
+    # Modernizes the early boot process.
+    systemd.enable = true;
   };
-  
-  # Set NVIDIA as the X11 video driver
-  services.xserver.videoDrivers = [ "nvidia" ];
-  
-  # Enable DRM modeset for better power management
-  boot.kernelParams = [ "nvidia-drm-modeset=1" ];
+
+  # --- 3. Kernel Parameters ---
+  # These "flags" tell the kernel and driver how to behave.
+  boot.kernelParams = [ 
+    "nvidia-drm.modeset=1" # Enables Kernel Mode Setting (Crucial for Wayland)
+    "nvidia-drm.fbdev=1"   # Needed for Plymouth to show the splash screen on Nvidia
+  ];
 }

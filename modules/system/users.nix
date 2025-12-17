@@ -5,8 +5,18 @@
 {
   # Define the 'ness' user account
   users.users.ness = {
-    isNormalUser = true;            # Create as a normal user (non-root)
-    extraGroups = [ "wheel" ];      # Add to wheel group for sudo access
+    # A non-root user
+    isNormalUser = true;   
+    # 'tss' is critical for the TPM2 security.        
+    extraGroups = [ "networkmanager" "input" "wheel" "video" "audio" "tss" ];
+    # Fish is the default shell
+    shell = pkgs.fish;
+  };
+
+  # Give your user more "RAM-disk" space for temporary app data.
+  # Highly recommended for high-performance Wayland/AI setups.
+  services.logind.settings.Login = {
+    RuntimeDirectorySize="8G";
   };
 
 }
