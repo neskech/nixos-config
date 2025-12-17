@@ -15,6 +15,8 @@
     
     # Code formatting
     nixfmt-rfc-style   # Nix code formatter following RFC style
+
+    repomix          # Download repositories
   ];
 
 }

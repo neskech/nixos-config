@@ -7,7 +7,7 @@
   services.xserver.enable = true;
   
   # Use GNOME Display Manager for login screen
-  services.xserver.displayManager.gdm.enable = true;
+  services.displayManager.gdm.enable = true;
   
   # Configure auto-login settings
   services.displayManager.autoLogin.enable = true;

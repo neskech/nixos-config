@@ -23,11 +23,21 @@
     # ============================================================================
     # HYPRLAND MODULE
     # ============================================================================
+
+
     wayland.windowManager.hyprland = {
       enable = true;
       
-      # We use builtins.readFile to grab the text from your master config file
-      # and inject it directly into the generated hyprland.conf
+      # 1. TELL HOME MANAGER TO USE THE FLAKE HYPRLAND
+      package = inputs.hyprland.packages.${pkgs.system}.hyprland;
+
+      # 2. INSTALL THE PLUGINS (Hyprbars & HyprExpo)
+      plugins = [
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+        inputs.hyprland-plugins.packages.${pkgs.system}.hyprexpo
+      ];
+
+      # Keep your existing config read
       extraConfig = builtins.readFile ./hyprland.conf;
     };
 
@@ -36,6 +46,7 @@
     # referenced in 'execs.conf' installed!
     home.packages = with pkgs; [
     # --- ESSENTIALS ---
+      inputs.quickshell.packages.${pkgs.system}.default
       hyprpaper       # Simple wallpaper engine
       swww            # Complex wallpaper engine (Likely used by the scripts in your rice)
       hyprlock        # Lock screen
