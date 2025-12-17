@@ -32,7 +32,7 @@
     # qutebrowser      # Keyboard-driven, Vim-like web browser
     zathura          # Minimalist document viewer (PDF, DJVU)
     mpv              # High-performance video player
-    mpv-handler      # Opens web-video links (YT) directly in MPV
+  #  mpv-handler      # Opens web-video links (YT) directly in MPV
     imv              # Blazing fast image viewer for Wayland
 
     # -- Core Wayland/Hyprland Tools --

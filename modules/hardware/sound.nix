@@ -6,7 +6,7 @@
   # ----------------------------------------------------------------------------
   # Enable sound with pipewire.
   # Disable the legacy audio server to prevent conflicts
-  services.pulseaudio.enable = false;
+  hardware.pulseaudio.enable = false;
   
   # Grants audio processes high priority to prevent stuttering/crackling
   security.rtkit.enable = true;

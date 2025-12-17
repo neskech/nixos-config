@@ -8,12 +8,12 @@ let
     bun
     nodePackages_latest.nodejs
     nodePackages_latest.npm
-    python313
+    python312
   ];
 
   lsp = with pkgs; [
     # --- Python ---
-    python313Packages.python-lsp-server # Comprehensive LSP for Python (autocompletion, definitions)
+    python312Packages.python-lsp-server # Comprehensive LSP for Python (autocompletion, definitions)
 
     # --- Node.js & Web Development ---
     nodePackages_latest.nodemon                      # Automatically restarts node apps when file changes are detected
@@ -28,7 +28,7 @@ let
     nodePackages_latest.yaml-language-server             # LSP for YAML files (used in CI/CD, Kubernetes)
     taplo                                            # High-performance TOML tool (formatter and LSP)
     nodePackages_latest.bash-language-server # LSP for Shell scripting (Bash)
-    dockerfile-language-server                        # LSP for writing Dockerfiles
+    #dockerfile-language-server                        # LSP for writing Dockerfiles
     docker-compose-language-service                  # LSP for multi-container Docker Compose files
     cmake-language-server                            # LSP for CMake build scripts
     terraform-ls                                     # LSP for HashiCorp Terraform (Infrastructure as Code)

@@ -17,8 +17,10 @@
 
   # Give your user more "RAM-disk" space for temporary app data.
   # Highly recommended for high-performance Wayland/AI setups.
-  services.logind.settings.Login = {
-    RuntimeDirectorySize="8G";
-  };
+# Use this for NixOS 24.11 Stable
+services.logind.extraConfig = ''
+  [Login]
+  RuntimeDirectorySize=8G
+'';
 
 }

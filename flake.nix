@@ -3,7 +3,7 @@
 
   inputs = {
     # The core NixOS package source
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
 
     # Home Manager for user-specific configuration
     home-manager = {
@@ -15,7 +15,7 @@
 
   outputs = { self, nixpkgs, home-manager, ... } @ inputs: {
     # Replace 'nixos' with your actual hostname if it is different
-    nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.Nexus = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       
       # This is the CRITICAL fix: it passes 'inputs' to all your modules

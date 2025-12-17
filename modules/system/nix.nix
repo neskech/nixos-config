@@ -5,7 +5,7 @@
   nix.settings = {
     # Unlocks modern Nix features. 
     # 'flakes' is essential for modern, reproducible NixOS setups.
-    experimental-features = [ "nix-command" ];  # TODO: Add flakes later  
+    experimental-features = [ "nix-command" "flakes" ];  # TODO: Add flakes later  
 
     # BINARY CACHES (Substituters):
     # These are 'warehouses' for pre-compiled software. 

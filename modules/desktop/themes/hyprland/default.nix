@@ -9,8 +9,22 @@
     ./apps.nix
     ./greeter.nix
     ./plymouth.nix
-    ./symlink.nix
+
   ];
+
+  home-manager = {
+    useGlobalPkgs = true;
+    useUserPackages = true;
+    backupFileExtension = "backup"; # This tells Nix to rename old files to .backup instead of failing
+    
+    users.ness = { pkgs, ... }: {
+      imports = [ 
+        ./symlink.nix 
+      ];
+      
+      home.stateVersion = "24.11";
+    };
+  };
 
   # Fonts
   fonts.packages = with pkgs; [

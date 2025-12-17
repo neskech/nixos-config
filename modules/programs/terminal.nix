@@ -40,7 +40,7 @@
     tree    # Directory tree visualization tool
     git     # Distributed version control system
     gh      # GitHub command-line interface
-    repomix # Download repositories into AI friendly file
+   # repomix # Download repositories into AI friendly file
     
     # -- Fun / Aesthetics --
     cava          # Audio visualizer
