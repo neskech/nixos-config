@@ -2,5 +2,5 @@
 
 {
   # Setup Env Variables
-  environment.variables.PLACEHOLDER = "FUCK"
+  environment.variables.PLACEHOLDER = "FUCK";
 }

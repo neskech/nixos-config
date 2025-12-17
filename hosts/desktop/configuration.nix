@@ -3,7 +3,7 @@
 # Edit this file to customize your NixOS installation
 # Documentation: configuration.nix(5), https://search.nixos.org/options
 
-{ config, lib, pkgs, ... }:
+{ config, lib, inputs, pkgs, ... }:
 
 {
   imports = [
@@ -15,8 +15,8 @@
     ../../modules/hardware    # Hardware-specific configurations
     ../../modules/programs    # Application packages
     ../../modules/system      # System core settings
+    inputs.home-manager.nixosModules.home-manager # Home manager
   ];
-
 
   # Allow installation of non-open-source software
   # You can use https://search.nixos.org/ to find more packages (and options).

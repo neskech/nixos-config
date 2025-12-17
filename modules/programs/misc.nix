@@ -29,24 +29,6 @@ let
 in
 {
 
-  # Enable the background service for screen dimming
-  services.gammastep = {
-    enable = true;
-    
-    # This tells Gammastep to look at your GeoClue2 config for coordinates
-    # See the locale config for installation of geoclue
-    locationSource = "geoclue2";
-
-    # Temperature settings (6500K is normal/blue, 3500K is warm/orange)
-    settings = {
-      general = {
-        temp-day = 6500;
-        temp-night = 3500;
-        fade = 1; # Makes the transition smooth
-      };
-    };
-  };
-
   # USB Automounting
   services.gvfs.enable = true;
 

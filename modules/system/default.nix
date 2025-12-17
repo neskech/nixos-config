@@ -7,8 +7,8 @@
   imports = [
     ./network.nix           # Network and connectivity settings
     ./users.nix             # User accounts and permissions
-    ./home-manager.nix      # Home Manager integration
-    ./bootloader.nix.       # Bootloader settings
+    # ./home-manager.nix      # Home Manager integration
+    ./bootloader.nix        # Bootloader settings
     ./adblock.nix           # Adblocker and DNS encryption
     ./env-variables.nix     # Environment variables
     ./garbage-collector.nix # Deletes obsolete libs and files
