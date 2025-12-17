@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, config, lib, ... }:
 
 {
   # 1. Enable ReGreet
@@ -15,10 +15,10 @@
     };
     GTK = {
       # Matches the theme package below
-      theme_name = "catppuccin-macchiato-blue-standard+default";
-      icon_theme_name = "Papirus-Dark";
-      cursor_theme_name = "Catppuccin-Macchiato-Blue-Cursors";
-      font_name = "JetBrainsMono Nerd Font 12";
+      theme_name = lib.mkForce "catppuccin-macchiato-blue-standard+default";
+      icon_theme_name = lib.mkForce "Papirus-Dark";
+      cursor_theme_name = lib.mkForce "Catppuccin-Macchiato-Blue-Cursors";
+      font_name = lib.mkForce "JetBrainsMono Nerd Font 12";
     };
   };
 

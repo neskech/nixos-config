@@ -81,5 +81,5 @@
   # If you dual-boot, Windows expects the hardware clock to be in Local Time,
   # while Linux expects UTC. This line prevents your clock from being 
   # off by several hours when switching between OSs.
-  time.hwClockInLocalTime = true;
+time.hardwareClockInLocalTime = true;
 }

@@ -6,7 +6,7 @@
   # It uses a different "Sheduler" (how the CPU decides which app gets power).
   # It prioritizes apps you are actually interacting with (like games or your browser)
   # over background tasks, making the desktop feel much "snappier."
-  boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
+  boot.kernelPackages = pkgs.linuxPackages_lts;
 
   # Firmware update service. Essential for updating SSDs and motherboards.
   services.fwupd.enable = true;
@@ -19,7 +19,7 @@
     # Without this, a malicious script could potentially steal passwords from RAM.
     forcePageTableIsolation = true;
     
-    # L1 DATA CACHE FLUSHING:
+    # L1 DATA CACHE FLUSHING: 
     # Protects against 'L1 Terminal Fault'. It forces the CPU to 'wipe' its 
     # fastest memory (L1 Cache) when switching contexts. This prevents a
     # virtual machine or a malicious process from reading data left behind 
@@ -54,7 +54,7 @@
     # AppArmor: Restricts what files/network ports apps can access.
     # Yama: Prevents one program from 'attaching' to another (prevents spy tools).
     # Landlock: A newer tech that allows apps to sandbox themselves.
-    "lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
+    #"lsm=landlock,lockdown,yama,integrity,apparmor,bpf"
     
     # --- Hardware Compatibility ---
     # usbcore.autosuspend=-1: Disables the 'sleep' feature for USB ports.
@@ -65,6 +65,6 @@
     # acpi_rev_override=5: Tells the motherboard to behave as if it's talking 
     # to a specific version of Windows. This often fixes broken touchpads, 
     # brightness keys, or sleep/wake issues on modern hardware.
-    "acpi_rev_override=5"
+    #"acpi_rev_override=5"
   ];
 }

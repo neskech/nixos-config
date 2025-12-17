@@ -4,6 +4,7 @@
 # 2. Exceptions (The stuff we want to keep)
 !/hosts/
 !/modules/
+!/flake.nix
 
 # 3. Don't ignore the gitignore file itself!
 !/.gitignore

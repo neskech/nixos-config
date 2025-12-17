@@ -25,22 +25,12 @@
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
   # accidentally delete configuration.nix.
-  system.copySystemConfiguration = true;
+  # system.copySystemConfiguration = true;
 
   # ============================================================================
   # 1. CONSOLE & TERMINAL FALLBACK
   # ============================================================================
-  console = {
-    # Uses the professional Terminus font for a crisp, readable text terminal
-    # if your graphics ever fail and you are stuck in the TTY.
-    font = "Lat2-Terminus16";
-    
-    # Ensures your US keyboard layout is active immediately at boot.
-    keyMap = "us";
-    
-    # Synchronizes your desktop keyboard tweaks (like remaps) into the console.
-    useXkbConfig = true; 
-  };
+  console.useXkbConfig = true; # Inherits keyboard settings from services.xserver.xkb
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.
