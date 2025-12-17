@@ -11,6 +11,8 @@
     extraGroups = [ "networkmanager" "input" "wheel" "video" "audio" "tss" ];
     # Fish is the default shell
     shell = pkgs.fish;
+    # Intial password
+    initialPassword = "bitch";
   };
 
   # Give your user more "RAM-disk" space for temporary app data.

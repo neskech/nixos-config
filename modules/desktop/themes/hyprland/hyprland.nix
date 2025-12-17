@@ -34,21 +34,4 @@
   # Enables the idle daemon, which can be configured to dim the screen,
   # lock the session, or turn off monitors after a certain period of inactivity.
   services.hypridle.enable = true;
-
-  # --- 4. The Hypr-Ecosystem (Utilities) ---
-  # These are the "building blocks" of a functional Hyprland desktop.
-  environment.systemPackages = with pkgs; [
-    pyprland         # A plugin manager for extra features (like 'scratchpad' windows).
-    hyprpicker       # A high-performance color picker tool for Wayland.
-    hyprcursor       # A modern cursor format that supports high-resolution scaling.
-    hyprlock         # The actual screen locker binary.
-    hypridle         # The idle management binary.
-    hyprpaper        # The official, fast wallpaper utility.
-    hyprsunset       # A blue-light filter (Night Light) for late-night usage.
-    wlr-randr        # Mandatory for managing monitors on Hyprland
-    
-    # CRITICAL: The "Polkit Agent." This is what creates the popup window 
-    # when an app (like a software installer) asks for your password.
-    hyprpolkitagent  
-  ];
 }

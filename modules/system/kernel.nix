@@ -8,6 +8,9 @@
   # over background tasks, making the desktop feel much "snappier."
   boot.kernelPackages = pkgs.linuxKernel.packages.linux_zen;
 
+  # Firmware update service. Essential for updating SSDs and motherboards.
+  services.fwupd.enable = true;
+
   # --- 2. Low-Level Security (CPU Mitigations) ---
   security = {
     # FORCE PAGE TABLE ISOLATION (PTI):
