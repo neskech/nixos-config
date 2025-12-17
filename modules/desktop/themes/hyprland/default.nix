@@ -9,6 +9,7 @@
     ./apps.nix
     ./greeter.nix
     ./plymouth.nix
+    ./symlink.nix
   ];
 
   # Fonts

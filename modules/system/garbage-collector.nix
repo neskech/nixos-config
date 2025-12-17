@@ -7,6 +7,9 @@
   # with hard links to a single copy. This runs during the installation of new packages.
   nix.settings.auto-optimise-store = true;
 
+  # Limit the number of generations to keep the boot partition clean
+  boot.loader.systemd-boot.configurationLimit = 10;
+
   # Periodically runs a deeper optimization process to find and eliminate 
   # redundant copies of identical files that might have been missed.
   nix.optimise.automatic = true;

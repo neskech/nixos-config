@@ -6,7 +6,7 @@
   # It uses a different "Sheduler" (how the CPU decides which app gets power).
   # It prioritizes apps you are actually interacting with (like games or your browser)
   # over background tasks, making the desktop feel much "snappier."
-  boot.kernelPackages = pkgs.linuxPackages_lts;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   # Firmware update service. Essential for updating SSDs and motherboards.
   services.fwupd.enable = true;
