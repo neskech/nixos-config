@@ -12,10 +12,12 @@
 
   ];
 
+  # This tells Nix to rename old files to .backup instead of failing
+  home-manager.backupFileExtension = "backup";
+
   home-manager = {
     useGlobalPkgs = true;
     useUserPackages = true;
-    backupFileExtension = "backup"; # This tells Nix to rename old files to .backup instead of failing
     
     users.ness = { pkgs, ... }: {
       imports = [ 

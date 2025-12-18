@@ -25,6 +25,7 @@ let
     xdg-utils        # Essential for "Open with..." and link handling
     playerctl        # Controls media (Play/Pause/Skip) via keyboard shortcuts
     at-spi2-atk      # Required for many GUI apps to behave correctly
+    piper            # Modify input hardware like mouse and keyboard
   ];
 in
 {
