@@ -17,7 +17,7 @@
     "btop".source = ./dotfiles/.config/btop;
     "cava".source = ./dotfiles/.config/cava;
     "delta".source = ./dotfiles/.config/delta;
-    "discord".source = ./dotfiles/.config/discord;
+     # Discord breaks if we replace the json file. Do this manually "discord".source = ./dotfiles/.config/discord;
     "dunst".source = ./dotfiles/.config/dunst;
     "fish".source = ./dotfiles/.config/fish;
     "gtk-3.0".source = ./dotfiles/.config/gtk-3.0;
@@ -31,7 +31,8 @@
     "tealdeer".source = ./dotfiles/.config/tealdeer;
     "waybar".source = ./dotfiles/.config/waybar;
     "wlogout".source = ./dotfiles/.config/wlogout;
-    "YouTube Music".source = ./dotfiles/.config + "/YouTube Music";
+    # Only sync the CSS file and not the JSON 
+    "YouTube Music/macchiato.css".source = ./dotfiles/.config + "/YouTube Music/macchiato.css";
     "zathura".source = ./dotfiles/.config/zathura;
     "zellij".source = ./dotfiles/.config/zellij;
   };
