@@ -42,7 +42,7 @@
 
   # --- 3. Networking Packages ---
   environment.systemPackages = with pkgs; [
-    nm-connection-editor
+    networkmanagerapplet # Wifi manager GUI
   ];
 
 }

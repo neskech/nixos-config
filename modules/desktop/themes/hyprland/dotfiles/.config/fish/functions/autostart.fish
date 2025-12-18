@@ -16,8 +16,8 @@ function autostart
     wl-clip-persist --clipboard regular & 
 
     # --- System Utilities ---
-    # Starts the On-Screen Display service (shows bubbles when changing volume/brightness)
-    avizo-service & 
+    # Replaced avizo with SwayOSD libinput backend to handle volume/brightness events.
+    swayosd-libinput-backend &
     # Starts the blue-light filter (like Night Shift) and adds an icon to the system tray
     gammastep-indicator &
     # Monitors system pressure (CPU/RAM/Disk strain) and notifies before a freeze occurs

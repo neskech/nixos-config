@@ -12,7 +12,6 @@
   # --- 1. Files in ~/.config ---
   # xdg.configFile automatically targets the ~/.config/ directory
   xdg.configFile = {
-    "avizo".source = ./dotfiles/.config/avizo;
     "bat".source = ./dotfiles/.config/bat;
     "btop".source = ./dotfiles/.config/btop;
     "bottom".source = ./dotfiles/.config/bottom;

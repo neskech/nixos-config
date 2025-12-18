@@ -34,4 +34,16 @@
   # Enables the idle daemon, which can be configured to dim the screen,
   # lock the session, or turn off monitors after a certain period of inactivity.
   services.hypridle.enable = true;
+
+  # Allows screen sharing and other stuff
+  xdg.portal = {
+    enable = true; # Activates the portal system
+    
+    # The GTK portal provides the 'File Picker' (Open/Save window) 
+    # since Hyprland doesn't have a built-in one
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ]; 
+    
+    # Tells the system to use these portals for all standard requests
+    config.common.default = "*"; 
+  };
 }
