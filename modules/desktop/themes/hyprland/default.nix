@@ -23,7 +23,7 @@
       ];
       
       home.stateVersion = "24.11";
-    };q5htb
+    };
   };
 
   # Fonts
