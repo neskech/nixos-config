@@ -39,10 +39,14 @@
   environment.systemPackages = with pkgs; [
     hunspell            # The core engine used by almost all Linux apps
     hunspellDicts.en_US # The actual list of English words
-  ];;
+  ];
 
   # --- 9. Time-Zone-And-Clock ---
-  services.automatic-timezoned.enable = "America/New_York";
+  # Set your specific time zone manually
+  time.timeZone = "America/New_York";
+
+  # Disable automatic detection since we are hardcoding the location
+  services.automatic-timezoned.enable = false;
 
   # --- For Dual-Booting with Windows ---
   # If you dual-boot, Windows expects the hardware clock to be in Local Time,
