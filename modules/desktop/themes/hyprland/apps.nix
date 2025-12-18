@@ -16,6 +16,8 @@
     ];
   };
 
+  services.upower.enable = true;
+
   # File Manager Backend: Stores settings for Thunar
   programs.xfconf.enable = true;
 
