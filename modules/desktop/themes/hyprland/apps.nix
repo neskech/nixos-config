@@ -3,6 +3,9 @@
 {
   # --- 1. SYSTEM SERVICES & DAEMONS ---
 
+  # Settings Database: Low-level storage for GTK/Gnome app preferences
+  programs.dconf.enable = true;
+
   # Message Bus: The "nervous system" allowing apps to talk to each other
   services.dbus = {
     enable = true;
@@ -15,8 +18,6 @@
 
   # Allows chrome to start up because it wants to query battery level
   services.upower.enable = true;
-  # Volume popup
-  services.swayosd.enable = true;
 
   # File Manager Backend: Stores settings for Thunar
   programs.xfconf.enable = true;
