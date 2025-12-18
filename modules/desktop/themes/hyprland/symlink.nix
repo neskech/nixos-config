@@ -60,6 +60,9 @@
     userEmail = "neskechastro@gmail.com";
   };
 
+  # Settings Database: Low-level storage for GTK/Gnome app preferences
+  programs.dconf.enable = true;
+
   # Enable the background service for screen dimming
   services.gammastep = {
     enable = true;
