@@ -66,9 +66,11 @@
   services.gammastep = {
     enable = true;
     
-    # This tells Gammastep to look at your GeoClue2 config for coordinates
-    # See the locale config for installation of geoclue
-    provider = "geoclue2";
+    # This tells Gammastep the location without needing a location provider
+    # like geoclue2 (which bugged out like crazy)
+    provider = "manual";
+    latitude = 40.5344;
+    longitude = -80.0131;
 
     # Temperature settings (6500K is normal/blue, 3500K is warm/orange)
     settings = {

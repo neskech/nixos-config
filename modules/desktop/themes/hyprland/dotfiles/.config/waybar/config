@@ -293,8 +293,9 @@
 
     "clock#date": {
         // #89b4fa is Blue, #b4befe is Lavender
-        "format": "<span color='#89b4fa'>{:%a}</span> • <span color='#b4befe'>{:%h | %F}</span>",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+        "format": "<span color='#89b4fa'>{:%a}</span> <span color='#b4befe'>{:%m/%d/%y}</span>",
+        "max-length": 20, // Forces the module to stop growing after 20 characters
+        // "tooltip-format": "<tt><small>{calendar}</small></tt>"
     },
 },
 
