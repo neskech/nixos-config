@@ -34,7 +34,7 @@
     settings = {
       default_session = {
         # Cage is a minimal Wayland compositor that runs exactly one app (regreet)
-        command = "${pkgs.cage}/bin/cage -s -- ${config.programs.regreet.package}/bin/regreet";
+        command = "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet";
         user = "greeter";
       };
     };
@@ -42,11 +42,6 @@
 
   # Ensure the greeter user can actually use the screen/GPU
   users.users.greeter.extraGroups = [ "video" "render" ];
-
-  # Help GTK/Cage find the themes
-  services.greetd.settings.default_session.command = lib.mkForce (
-    "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet"
-  );
 
   # 4. Ensure the themes are actually installed for the greeter user
   environment.systemPackages = with pkgs; [

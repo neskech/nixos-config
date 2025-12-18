@@ -45,13 +45,7 @@
   # Geoclue is a system-wide service that provides location information 
   # (latitude, longitude, and altitude). It works by looking at your 
   # IP address, Wi-Fi networks, or specialized hardware (GPS).
-  services.geoclue2 = {
-     enable = true;
-     appConfig."gammastep" = {
-        isAllowed = true;
-        isSystem = false;
-     };
-  };
+  services.geoclue2.enable = true;
 
   # --- 7. Global Location Provider ---
   # This tells NixOS that 'geoclue2' is the official source of truth 
