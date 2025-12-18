@@ -28,18 +28,4 @@
 
   # Sets the kernel log level. '3' means only show Errors and Critical messages (hides Info/Debug).
   boot.consoleLogLevel = 3;
-
-  # Plymouth provides the graphical "splash screen" (logo/animation) while the system loads.
-  boot.plymouth = {
-    enable = true;
-    
-    # Path to the font used by the boot splash for messages or password prompts (decryption).
-    font = "${pkgs.jetbrains-mono}/share/fonts/truetype/JetBrainsMono-Regular.ttf";
-    
-    # The package containing the specific themes you want to use.
-    themePackages = [ pkgs.catppuccin-plymouth ];
-    
-    # The specific flavor of the Catppuccin theme to display.
-    theme = "catppuccin-macchiato";
-  };
 }

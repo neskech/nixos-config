@@ -10,12 +10,11 @@
   programs.regreet.settings = {
     background = {
       # Path to your login wallpaper
-      path = "/etc/nixos/wallpapers/login-bg.png"; 
+      path = ./dotfiles/.tg-wallpapers/greet.jpg; 
       fit = "Cover";
     };
     GTK = {
-      # Matches the theme package below
-      theme_name = lib.mkForce "catppuccin-macchiato-blue-standard+default";
+      theme_name = lib.mkForce "catppuccin-macchiato-blue-standard"; # Removed +default
       icon_theme_name = lib.mkForce "Papirus-Dark";
       cursor_theme_name = lib.mkForce "Catppuccin-Macchiato-Blue-Cursors";
       font_name = lib.mkForce "JetBrainsMono Nerd Font 12";
@@ -40,6 +39,14 @@
       };
     };
   };
+
+  # Ensure the greeter user can actually use the screen/GPU
+  users.users.greeter.extraGroups = [ "video" "render" ];
+
+  # Help GTK/Cage find the themes
+  services.greetd.settings.default_session.command = lib.mkForce (
+    "${pkgs.dbus}/bin/dbus-run-session ${pkgs.cage}/bin/cage -s -- ${pkgs.greetd.regreet}/bin/regreet"
+  );
 
   # 4. Ensure the themes are actually installed for the greeter user
   environment.systemPackages = with pkgs; [

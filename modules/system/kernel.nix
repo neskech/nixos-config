@@ -42,7 +42,7 @@
     "loglevel=3"                 # Hide 'Warnings' and 'Info', only show 'Errors'.
     "rd.udev.log_priority=3"     # Tell the device manager (udev) to keep its logs quiet too.
     "vt.global_cursor_default=0" # Remove the blinking '_' during boot for a cleaner look.
-
+    "rd.systemd.show_status=false" # Hide systemd status messages
     # --- Graphics & Display ---
     # fbcon=nodefer: Normally, the kernel waits a bit to initialize the console 
     # display. This forces it to start immediately, preventing the 'black screen' 
