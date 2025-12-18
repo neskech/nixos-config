@@ -70,6 +70,9 @@
     hyprsunset       # A blue-light filter (Night Light) for late-night usage.
     wlr-randr        # Mandatory for managing monitors on Hyprland
     
+    # Icon pack for rofi
+    numix-icon-theme-circle
+    
     # CRITICAL: The "Polkit Agent." This is what creates the popup window 
     # when an app (like a software installer) asks for your password.
     hyprpolkitagent  

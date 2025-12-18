@@ -22,8 +22,9 @@ alias ldocker="lazydocker"
 alias conf="z ~/.config"
 alias nixos="z /etc/nixos"
 alias store="z /nix/store"
-alias nswitch="sudo nixos-rebuild switch --flake /etc/nixos#isitreal-laptop"
-alias nswitchu="sudo nix flake update --flake /etc/nixos; and sudo nixos-rebuild switch --flake /etc/nixos#isitreal-laptop --upgrade"
+# Change /etc/nixos to your actual config folder
+alias nswitch="sudo nixos-rebuild switch --flake ~/Nexus/nixos-config#Nexus"
+alias nswitchu="sudo nix flake update --flake ~/Nexus/nixos-config#Nexus; and sudo nixos-rebuild switch --flake ~/Nexus/nixos-config#Nexus --upgrade"
 alias nau="sudo nix-channel --add https://nixos.org/channels/nixos-unstable nixos"
 alias nsgc="sudo nix-store --gc"
 alias ngc="sudo nix-collect-garbage -d"
@@ -46,14 +47,12 @@ set fish_cursor_default block
 set fish_cursor_insert line blink
 set fish_cursor_visual underscore blink
 
-set -Ux FZF_DEFAULT_OPTS "\
+set -gx FZF_DEFAULT_OPTS "\
 --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796 \
 --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6 \
 --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796"
 
 starship init fish | source
 zoxide init fish | source
-direnv hook fish | source
-mise activate fish | source
 
 enable_transience

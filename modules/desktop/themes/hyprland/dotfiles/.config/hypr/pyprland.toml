@@ -8,8 +8,9 @@ plugins = [
 ]
 
 [scratchpads.term]
-command = "wezterm start --always-new-process"
-class = "wezterm_dropdown"
+# CHANGED: Now uses Kitty with a specific class name
+command = "kitty --class kitty-dropterm"
+class = "kitty-dropterm"
 animation = "fromTop"
 unfocus = "hide"
 excludes = "*"

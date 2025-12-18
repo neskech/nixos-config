@@ -40,5 +40,5 @@ in
 
   # --- System Packages ---
   # This pulls in the 'monitors' list we defined in the 'let' block above
-  environment.systemPackages = monitors;
+  environment.systemPackages = monitors ++ misc;
 }
