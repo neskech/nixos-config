@@ -42,7 +42,7 @@
 
   # --- 3. Networking Packages ---
   environment.systemPackages = with pkgs; [
-    impala # Terminal Wi-Fi manager (Fast and lightweight)
+    nm-connection-editor
   ];
 
 }

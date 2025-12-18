@@ -16,7 +16,10 @@
     ];
   };
 
+  # Allows chrome to start up because it wants to query battery level
   services.upower.enable = true;
+  # Volume popup
+  services.swayosd.enable = true;
 
   # File Manager Backend: Stores settings for Thunar
   programs.xfconf.enable = true;

@@ -8,6 +8,7 @@ let
     # --- The Only Info Tools You Need ---
     neofetch             # The classic "What am I running?" tool
     btop                 # The best visual system monitor (CPU/RAM/Disk)
+    bottom               # Another visual system monitor (CPU/RAM/Disk)
     nvtopPackages.nvidia # The best way to monitor your Nvidia GPU
     
     # --- Essential Hardware/Network Utilities ---

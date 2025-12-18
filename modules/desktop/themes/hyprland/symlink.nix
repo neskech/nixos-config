@@ -15,6 +15,7 @@
     "avizo".source = ./dotfiles/.config/avizo;
     "bat".source = ./dotfiles/.config/bat;
     "btop".source = ./dotfiles/.config/btop;
+    "bottom".source = ./dotfiles/.config/bottom;
     "cava".source = ./dotfiles/.config/cava;
     "delta".source = ./dotfiles/.config/delta;
      # Discord breaks if we replace the json file. Do this manually "discord".source = ./dotfiles/.config/discord;

@@ -11,8 +11,11 @@
   # Power up the default controller on boot
   hardware.bluetooth.powerOnBoot = true;
 
+  # This provides the backend pairing agent that Overskride uses
+  services.blueman.enable = true;
+
   environment.systemPackages = with pkgs; [
-    # https://github.com/kaii-lb/overskride
+    # Bluetooth GUI https://github.com/kaii-lb/overskride
     overskride
   ];
 }
