@@ -20,13 +20,11 @@ multi = false
 [scratchpads.volume]
 command = "pavucontrol"
 animation = "fromLeft"
-class = "volume_sidemenu"
+class = "org.pulseaudio.pavucontrol" # Use the real internal name
 size = "40% 70%"
 unfocus = "hide"
-excludes = "*"
 lazy = true
-margin = 90
-multi = false
+margin = 20 # 90 might be too far off-screen depending on resolution
 
 [shortcuts_menu.entries]
 

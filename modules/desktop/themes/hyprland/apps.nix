@@ -73,6 +73,8 @@
     
     # Icon pack for rofi
     numix-icon-theme-circle
+    # AASCI art generator for terminal
+    figlet
     
     # CRITICAL: The "Polkit Agent." This is what creates the popup window 
     # when an app (like a software installer) asks for your password.
