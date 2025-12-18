@@ -291,10 +291,11 @@
         }
     },
 
-  "clock#date": {
-    "format": "{:%a • %h | %F}",
-    "tooltip-format": "<tt><small>{calendar}</small></tt>"
-   },
+    "clock#date": {
+        // #89b4fa is Blue, #b4befe is Lavender
+        "format": "<span color='#89b4fa'>{:%a}</span> • <span color='#b4befe'>{:%h | %F}</span>",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    },
 },
 
 
