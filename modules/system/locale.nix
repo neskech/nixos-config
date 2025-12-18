@@ -45,12 +45,25 @@
   # Geoclue is a system-wide service that provides location information 
   # (latitude, longitude, and altitude). It works by looking at your 
   # IP address, Wi-Fi networks, or specialized hardware (GPS).
-  services.geoclue2.enable = true;
+  services.geoclue2 = {
+    enable = true;
+    
+    # FIX 1: Enable the Demo Agent.
+    # On standalone window managers like Hyprland, there is often no "agent" to 
+    # handle the permission handshake. This built-in agent bridges that gap.
+    enableDemoAgent = true;
+
+    # FIX 2: Update the Lookup URL.
+    # The default Mozilla service is defunct. Using beacondb ensures the 
+    # service actually gets a valid location response back.
+    geoProviderUrl = "https://beacondb.net/v1/geolocate";
+  };
 
   # --- 7. Global Location Provider ---
   # This tells NixOS that 'geoclue2' is the official source of truth 
   # for your physical location when apps request it.
   location.provider = "geoclue2";
+
 
   # --- 8. Application-Specific Permissions ---
   # For security, Geoclue doesn't just give your location to any app. 
@@ -71,6 +84,11 @@
         users = [ "1000" ]; 
       };
   };
+
+  # FIX: Enable Avahi.
+  # Geoclue often uses local network signals to help triangulate your 
+  # position. Avahi is the standard service for this on Linux.
+  services.avahi.enable = true;
 
   # --- 9. Time-Zone-And-Clock ---
   # Sets time zone automatically based on location
