@@ -31,9 +31,33 @@ in {
 
   # ... (Keep extraCss and greetd settings same) ...
   programs.regreet.extraCss = ''
+    /* 1. Glassy Login Box */
     .login-box {
+      /* Dark background with 70% opacity (adjust the 0.7 to taste) */
+      background-color: rgba(36, 39, 58, 0.7); 
       border-radius: 15px;
       padding: 20px;
+      /* Optional: subtle border to make it pop like your waybar */
+      border: 1px solid rgba(183, 189, 248, 0.3);
+    }
+
+    /* 2. Hide the Top Bar Clock/Time */
+    .clock {
+      opacity: 0;
+      margin-top: -100px; /* Moves it off-screen if opacity fails */
+    }
+
+    /* 3. Glassy Power/Session Buttons */
+    /* This targets the buttons in the bottom bar (shutdown, reboot) */
+    window flowboxchild {
+      background-color: rgba(36, 39, 58, 0.5);
+      border-radius: 10px;
+      margin: 5px;
+    }
+    
+    /* Make them light up slightly on hover */
+    window flowboxchild:hover {
+      background-color: rgba(36, 39, 58, 0.9);
     }
   '';
 

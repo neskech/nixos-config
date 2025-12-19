@@ -135,18 +135,18 @@ window.bottom_bar .modules-center {
     color: @blue;
     font-weight: bold;
     font-size: 16px;
-    margin-right: 10px; /* Space between time and day */
+    /* Removed margin-right to fix centering */
 }
 
 #clock.day {
-    color: @sapphire; /* Different color 1 */
+    color: @sapphire; 
     font-weight: bold;
     font-size: 16px;
-    margin-right: 10px; /* Space between day and month */
+    /* Removed margin-right to fix centering */
 }
 
 #clock.month {
-    color: @mauve; /* Different color 2 */
+    color: @mauve;
     font-weight: bold;
     font-size: 16px;
 }
