@@ -55,8 +55,17 @@
   
   programs.git = {
     enable = true;
-    userName = "ness";
+    userName = "neskech";
     userEmail = "neskechastro@gmail.com";
+
+    # Add this block:
+    extraConfig = {
+      credential = {
+        "https://github.com" = {
+          helper = "!${pkgs.gh}/bin/gh auth git-credential";
+        };
+      };
+    };
   };
 
   # Volume popup

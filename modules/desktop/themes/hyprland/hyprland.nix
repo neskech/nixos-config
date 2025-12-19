@@ -32,7 +32,7 @@
     (self: super: {
       # 1. Google Chrome Override
       google-chrome = super.google-chrome.override {
-        commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+        commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland --use-angle=gl --gtk-version=4";
       };
 
       # 2. VS Code Override
