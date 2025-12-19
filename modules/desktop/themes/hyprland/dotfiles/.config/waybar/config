@@ -129,8 +129,13 @@
         "spacing": 4, 
         // 7) Bottom bar ONLY displays current time in center
         "modules-left": [],
-        "modules-center": ["clock#time", "clock#day", "clock#month"],
+        "modules-center": ["clock#time", "custom/separator", "clock#day", "custom/separator", "clock#month"],
         "modules-right": [],
+
+        "custom/separator": {
+            "format": "|",
+            "tooltip": false
+         },
     
         "clock#time": {
             "format": "{:%I:%M %p}",
@@ -141,7 +146,7 @@
             "tooltip-format": "<tt><small>{calendar}</small></tt>"
         },
         "clock#month": {
-            "format": "{:%h}", // Month Abbreviation
+            "format": "{:%B %d}", // Result: "December 19"
             "tooltip-format": "<tt><small>{calendar}</small></tt>"
         },
     },

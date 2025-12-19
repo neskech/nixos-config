@@ -26,7 +26,22 @@
   # disappears. This forces the system to draw the cursor with software instead.
   environment.sessionVariables.WLR_NO_HARDWARE_CURSORS = "1";
 
-  # --- 3. Desktop Security & Power ---
+  # This replaces "google-chrome" system-wide with your modified version
+  # Forces chrome and vscode to use wayland to prevent graphical bugs
+  nixpkgs.overlays = [
+    (self: super: {
+      # 1. Google Chrome Override
+      google-chrome = super.google-chrome.override {
+        commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+      };
+
+      # 2. VS Code Override
+      vscode = super.vscode.override {
+        commandLineArgs = "--enable-features=UseOzonePlatform --ozone-platform=wayland";
+      };
+    })
+  ];
+
 
   # Enables the screen locker utility.
   programs.hyprlock.enable = true;

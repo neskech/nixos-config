@@ -121,7 +121,13 @@ window.bottom_bar .modules-center {
     margin-top: 4px;
     margin-bottom: 4px;
     /* Optional: Add the blue glow to the box itself if you want */
-    box-shadow: 0px 0px 5px alpha(@blue, 0.3);
+    /* box-shadow: 0px 0px 5px alpha(@blue, 0.3); */
+}
+
+#custom-separator {
+    color: @overlay0; /* Subtle gray color */
+    font-size: 16px;
+    margin: 0 10px;   /* Space around the pipe */
 }
 
 /* 2. Color the individual text parts */
