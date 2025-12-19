@@ -28,8 +28,8 @@
 
   environment.systemPackages = with pkgs; [
     # Example hardware-related packages
-    # pavucontrol    # Audio mixer for PulseAudio
-    # pulsemixer     # Command-line audio mixer
+      pavucontrol    # Audio mixer for PulseAudio
+      pulsemixer     # Command-line audio mixer
   ];
 
 }
