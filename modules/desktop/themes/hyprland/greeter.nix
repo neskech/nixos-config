@@ -29,39 +29,6 @@ in {
     };
   };
 
-  # ... (Keep extraCss and greetd settings same) ...
-  programs.regreet.extraCss = ''
-    /* 1. Glassy Login Box */
-    /* Instead of a class, we target the generic vertical box inside the overlay */
-    window overlay > box {
-      background-color: rgba(36, 39, 58, 0.5); 
-      border-radius: 15px;
-      padding: 30px;
-      border: 1px solid rgba(138, 173, 244, 0.3);
-    }
-
-    /* 2. Hide the Top Bar Clock */
-    /* CRITICAL CHANGE: Use '#' for ID, not '.' for class */
-    #clock {
-      opacity: 0;
-      /* If opacity fails, move it off screen */
-      margin-top: -200px;
-    }
-
-    /* 3. Glassy Power Buttons */
-    /* Target the buttons inside the flowbox at the bottom */
-    flowboxchild {
-      background-color: rgba(36, 39, 58, 0.5);
-      border-radius: 10px;
-      padding: 5px;
-      margin: 5px;
-    }
-    
-    flowboxchild:hover {
-      background-color: rgba(36, 39, 58, 0.8);
-    }
-  '';
-
   services.greetd = {
     enable = true;
     settings = {
