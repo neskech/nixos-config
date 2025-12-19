@@ -17,7 +17,7 @@
     # Configures the scanning service
     scanner = {
       enable = true;
-      path = "/home/ness";
+      path = "/";
       # Schedule: Every Saturday at 4:00 PM (16:00).
       interval = "Sat *-*-* 16:00:00";
     };
