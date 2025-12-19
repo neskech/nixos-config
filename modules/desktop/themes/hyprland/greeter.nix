@@ -32,32 +32,33 @@ in {
   # ... (Keep extraCss and greetd settings same) ...
   programs.regreet.extraCss = ''
     /* 1. Glassy Login Box */
-    .login-box {
-      /* Dark background with 70% opacity (adjust the 0.7 to taste) */
-      background-color: rgba(36, 39, 58, 0.7); 
+    /* Instead of a class, we target the generic vertical box inside the overlay */
+    window overlay > box {
+      background-color: rgba(36, 39, 58, 0.5); 
       border-radius: 15px;
-      padding: 20px;
-      /* Optional: subtle border to make it pop like your waybar */
-      border: 1px solid rgba(183, 189, 248, 0.3);
+      padding: 30px;
+      border: 1px solid rgba(138, 173, 244, 0.3);
     }
 
-    /* 2. Hide the Top Bar Clock/Time */
-    .clock {
+    /* 2. Hide the Top Bar Clock */
+    /* CRITICAL CHANGE: Use '#' for ID, not '.' for class */
+    #clock {
       opacity: 0;
-      margin-top: -100px; /* Moves it off-screen if opacity fails */
+      /* If opacity fails, move it off screen */
+      margin-top: -200px;
     }
 
-    /* 3. Glassy Power/Session Buttons */
-    /* This targets the buttons in the bottom bar (shutdown, reboot) */
-    window flowboxchild {
+    /* 3. Glassy Power Buttons */
+    /* Target the buttons inside the flowbox at the bottom */
+    flowboxchild {
       background-color: rgba(36, 39, 58, 0.5);
       border-radius: 10px;
+      padding: 5px;
       margin: 5px;
     }
     
-    /* Make them light up slightly on hover */
-    window flowboxchild:hover {
-      background-color: rgba(36, 39, 58, 0.9);
+    flowboxchild:hover {
+      background-color: rgba(36, 39, 58, 0.8);
     }
   '';
 
