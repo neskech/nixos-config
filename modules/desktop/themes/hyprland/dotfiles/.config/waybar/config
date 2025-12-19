@@ -263,9 +263,9 @@
     "position": "bottom", // Waybar position (top|bottom|left|right)
     "height": 36, // Waybar height (to be removed for auto height)
     "spacing": 4, // Gaps between modules (4px)
-    "modules-left": ["clock#date"],
+    "modules-left": [],
     "modules-center": ["hyprland/window"],
-    "modules-right": ["keyboard-state", "hyprland/language"],
+    "modules-right": [],
 
     // Modules Config
     "hyprland/window": {
@@ -273,29 +273,9 @@
         "max-length": 50,
     },
 
-    "hyprland/language": {
-        "format-en": "🇺🇸",
-        "format-uk": "🇺🇦 UKR",
-        "format-ru": "🇷🇺 RUS",
-        "keyboard-name": "at-translated-set-2-keyboard",
-        "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next",
-    },
 
-    "keyboard-state": {
-        "capslock": true,
-        // "numlock": true,
-        "format": "{name} {icon}",
-        "format-icons": {
-            "locked": "󰌾",
-            "unlocked": "󰍀"
-        }
-    },
-
-    "clock#date": {
-        // #89b4fa is Blue, #b4befe is Lavender
-        "format": "{:%a • %h | %F}",
-        "max-length": 20, // Forces the module to stop growing after 20 characters
-        // "tooltip-format": "<tt><small>{calendar}</small></tt>"
+    "clock#time": {
+        "format": "{:%I:%M}",
     },
 },
 

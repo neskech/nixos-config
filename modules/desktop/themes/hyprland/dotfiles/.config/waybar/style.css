@@ -117,18 +117,6 @@ window.top_bar .modules-center {
   color: @flamingo;
 }
 
-#clock.week {
-  color: @sapphire;
-}
-
-#clock.month {
-  color: @sapphire;
-}
-
-#clock.calendar {
-  color: @mauve;
-}
-
 #bluetooth {
   background-color: alpha(@surface1, 0.7);
   border-radius: 15;
