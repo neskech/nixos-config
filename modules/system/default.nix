@@ -17,6 +17,7 @@
     ./nix.nix               # Nix configuration
     ./swap.nix              # RAM swap configuration
     ./ssh.nix               # SSH settings
+    ./security.nix          # Security enhancements
   ];
 
 }

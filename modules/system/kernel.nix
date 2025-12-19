@@ -43,6 +43,7 @@
     "rd.udev.log_priority=3"     # Tell the device manager (udev) to keep its logs quiet too.
     "vt.global_cursor_default=0" # Remove the blinking '_' during boot for a cleaner look.
     "rd.systemd.show_status=false" # Hide systemd status messages
+    "boot.shell_on_fail"          # If boot fails, drop to a shell for debugging.
     # --- Graphics & Display ---
     # fbcon=nodefer: Normally, the kernel waits a bit to initialize the console 
     # display. This forces it to start immediately, preventing the 'black screen' 
