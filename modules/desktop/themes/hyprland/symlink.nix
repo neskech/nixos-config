@@ -55,13 +55,16 @@
   
   programs.git = {
     enable = true;
-    userName = "neskech";
+    userName = "ness";
     userEmail = "neskechastro@gmail.com";
 
-    # Add this block:
+    # ADD THIS SECTION:
     extraConfig = {
       credential = {
         "https://github.com" = {
+          helper = "!${pkgs.gh}/bin/gh auth git-credential";
+        };
+        "https://gist.github.com" = {
           helper = "!${pkgs.gh}/bin/gh auth git-credential";
         };
       };
