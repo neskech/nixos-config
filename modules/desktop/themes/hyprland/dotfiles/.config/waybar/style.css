@@ -1,431 +1,130 @@
 @import "macchiato.css";
 
 * {
-  border: none;
+    border: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+    min-height: 0;
 }
 
-window.bottom_bar#waybar {
-  background-color: alpha(@base, 0.7);
-  border-top: solid alpha(@surface1, 0.7) 2;
+/* --- TOP BAR STYLING --- */
+window#waybar.top_bar {
+    background-color: alpha(@base, 0.7);
+    border-bottom: 2px solid alpha(@surface1, 0.7);
+    color: @text;
 }
 
-window.top_bar#waybar {
-  background-color: alpha(@base, 0.7);
-  border-bottom: solid alpha(@surface1, 0.7) 2;
+/* Left: Stats (CPU, RAM, Disk) */
+.modules-left {
+    margin-left: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
-window.left_bar#waybar {
-  background-color: alpha(@base, 0.7);
-  border-top: solid alpha(@surface1, 0.7) 2;
-  border-right: solid alpha(@surface1, 0.7) 2;
-  border-bottom: solid alpha(@surface1, 0.7) 2;
-  border-radius: 0 15 15 0;
+#cpu, #memory, #disk {
+    background-color: alpha(@surface1, 0.7);
+    color: @sapphire;
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 10px;
 }
 
-window.bottom_bar .modules-center {
-  background-color: alpha(@surface1, 0.7);
-  color: @green;
-  border-radius: 15;
-  padding-left: 20;
-  padding-right: 20;
-  margin-top: 5;
-  margin-bottom: 5;
+/* Center: App Launchers */
+.modules-center {
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
-window.bottom_bar .modules-left {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 0 15 15 0;
-  padding-left: 20;
-  padding-right: 20;
-  margin-top: 5;
-  margin-bottom: 5;
+/* Common style for all launchers */
+#custom-launcher_term, 
+#custom-launcher_browser, 
+#custom-launcher_files, 
+#custom-launcher_music {
+    background-color: alpha(@surface1, 0.7);
+    color: @peach; /* Default icon color */
+    padding: 0 15px;
+    margin: 0 4px;
+    border-radius: 10px;
+    font-size: 18px; /* Slightly larger icons for launchers */
 }
 
-window.bottom_bar .modules-right {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 15 0 0 15;
-  padding-left: 20;
-  padding-right: 20;
-  margin-top: 5;
-  margin-bottom: 5;
+/* Specific colors for specific apps if desired */
+#custom-launcher_term { color: @green; }
+#custom-launcher_music { color: @green; } /* Spotify Green-ish */
+#custom-launcher_browser { color: @blue; }
+#custom-launcher_files { color: @yellow; }
+
+#custom-launcher_term:hover, 
+#custom-launcher_browser:hover, 
+#custom-launcher_files:hover, 
+#custom-launcher_music:hover {
+    background-color: @surface2;
+    color: @text;
 }
 
-#user {
-  padding-left: 10;
+/* Right: Utilities */
+.modules-right {
+    margin-right: 10px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
-#language {
-  padding-left: 15;
+#pulseaudio, #bluetooth, #network, #idle_inhibitor, #custom-logout_menu {
+    background-color: alpha(@surface1, 0.7);
+    padding: 0 10px;
+    margin: 0 4px;
+    border-radius: 10px;
+    color: @text;
 }
 
-#keyboard-state label.locked {
-  color: @yellow;
+#pulseaudio { color: @blue; }
+#bluetooth { color: @lavender; }
+#network { color: @mauve; }
+#idle_inhibitor { color: @maroon; }
+#custom-logout_menu { 
+    color: @red; 
+    padding-right: 12px; /* Extra padding for the power button */
 }
 
-#keyboard-state label {
-  color: @subtext0;
+
+/* --- BOTTOM BAR STYLING --- */
+window#waybar.bottom_bar {
+    background-color: alpha(@base, 0.7);
+    border-top: 2px solid alpha(@surface1, 0.7);
 }
 
-#workspaces {
-  margin-left: 10;
+#clock.bottom {
+    color: @blue;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 15px;
+    text-shadow: 0px 0px 5px alpha(@blue, 0.5);
+    background-color: alpha(@surface0, 0.5);
+    border-radius: 15px;
+    margin-top: 4px;
+    margin-bottom: 4px;
 }
 
-#workspaces button {
-  color: @text;
-  font-size: 1.25rem;
+
+/* --- LEFT BAR STYLING --- */
+window#waybar.left_bar {
+    background-color: alpha(@base, 0.7);
+    border-right: 2px solid alpha(@surface1, 0.7);
+    border-radius: 0 15px 15px 0;
 }
 
-#workspaces button.empty {
-  color: @overlay0;
-}
-
-#workspaces button.active {
-  color: @peach;
-}
-
-#submap {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 15;
-  padding-left: 15;
-  padding-right: 15;
-  margin-left: 20;
-  margin-right: 20;
-  margin-top: 5;
-  margin-bottom: 5;
-}
-
-window.top_bar .modules-center {
-  font-weight: bold;
-  background-color: alpha(@surface1, 0.7);
-  color: @peach;
-  border-radius: 15;
-  padding-left: 20;
-  padding-right: 20;
-  margin-top: 5;
-  margin-bottom: 5;
-}
-
-#custom-separator {
-  color: @green;
-}
-
-#custom-separator_dot {
-  color: @green;
-}
-
-#clock.time {
-  color: @flamingo;
-}
-
-#bluetooth {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 15;
-  padding-left: 15;
-  padding-right: 15;
-  margin-top: 5;
-  margin-bottom: 5;
-}
-
-#bluetooth.disabled {
-  background-color: alpha(@surface0, 0.7);
-  color: @subtext0;
-}
-
-#bluetooth.on {
-  color: @blue;
-}
-
-#bluetooth.connected {
-  color: @sapphire;
-}
-
-#network {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 15;
-  padding-left: 15;
-  padding-right: 15;
-  margin-left: 2;
-  margin-right: 2;
-  margin-top: 5;
-  margin-bottom: 5;
-}
-
-#network.disabled {
-  background-color: alpha(@surface0, 0.7);
-  color: @subtext0;
-}
-
-#network.disconnected {
-  color: @red;
-}
-
-#network.wifi {
-  color: @teal;
-}
-
-#idle_inhibitor {
-  margin-right: 2;
-}
-
-#idle_inhibitor.deactivated {
-  color: @subtext0;
-}
-
-#custom-dunst.off {
-  color: @subtext0;
-}
-
-#custom-airplane_mode {
-  margin-right: 2;
-}
-
-#custom-airplane_mode.off {
-  color: @subtext0;
-}
-
-#custom-night_mode {
-  margin-right: 2;
-}
-
-#custom-night_mode.off {
-  color: @subtext0;
-}
-
-#custom-dunst {
-  margin-right: 2;
-}
-
-#custom-media.Paused {
-  color: @subtext0;
-}
-
-#custom-webcam {
-  color: @maroon;
-  margin-right: 3;
-}
-
-#privacy-item.screenshare {
-  color: @peach;
-  margin-right: 5;
-}
-
-#privacy-item.audio-in {
-  color: @pink;
-  margin-right: 4;
-}
-
-#custom-recording {
-  color: @red;
-  margin-right: 4;
-}
-
-#custom-geo {
-  color: @yellow;
-  margin-right: 4;
-}
-
-#custom-logout_menu {
-  color: @red;
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 15 0 0 15;
-  padding-left: 10;
-  padding-right: 5;
-  margin-top: 5;
-  margin-bottom: 5;
-}
-
-window.left_bar .modules-center {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 0 15 15 0;
-  margin-right: 5;
-  margin-top: 15;
-  margin-bottom: 15;
-  padding-top: 5;
-  padding-bottom: 5;
-}
-
-#taskbar {
-  margin-top: 10;
-  margin-right: 10;
-  margin-left: 10;
+#taskbar button {
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+    color: @overlay0;
 }
 
 #taskbar button.active {
-  background-color: alpha(@surface1, 0.7);
-  border-radius: 10;
+    background-color: @surface1;
+    color: @text;
 }
 
-#tray {
-  margin-bottom: 10;
-  margin-right: 10;
-  margin-left: 10;
-}
-
-#tray>.needs-attention {
-  background-color: alpha(@maroon, 0.7);
-  border-radius: 10;
-}
-
-#cpu {
-  color: @sapphire;
-}
-
-#cpu.low {
-  color: @rosewater;
-}
-
-#cpu.lower-medium {
-  color: @yellow;
-}
-
-#cpu.medium {
-  color: @peach;
-}
-
-#cpu.upper-medium {
-  color: @maroon;
-}
-
-#cpu.high {
-  color: @red;
-}
-
-#memory {
-  color: @sapphire;
-}
-
-#memory.low {
-  color: @rosewater;
-}
-
-#memory.lower-medium {
-  color: @yellow;
-}
-
-#memory.medium {
-  color: @peach;
-}
-
-#memory.upper-medium {
-  color: @maroon;
-}
-
-#memory.high {
-  color: @red;
-}
-
-#disk {
-  color: @sapphire;
-}
-
-#disk.low {
-  color: @rosewater;
-}
-
-#disk.lower-medium {
-  color: @yellow;
-}
-
-#disk.medium {
-  color: @peach;
-}
-
-#disk.upper-medium {
-  color: @maroon;
-}
-
-#disk.high {
-  color: @red;
-}
-
-#temperature {
-  color: @green;
-}
-
-#temperature.critical {
-  color: @red;
-}
-
-#battery {
-  color: @teal;
-}
-
-#battery.low {
-  color: @red;
-}
-
-#battery.lower-medium {
-  color: @maroon;
-}
-
-#battery.medium {
-  color: @peach;
-}
-
-#battery.upper-medium {
-  color: @flamingo;
-}
-
-#battery.high {
-  color: @rosewater;
-}
-
-#backlight {
-  color: @overlay0;
-}
-
-#backlight.low {
-  color: @overlay1;
-}
-
-#backlight.lower-medium {
-  color: @overlay2;
-}
-
-#backlight.medium {
-  color: @subtext0;
-}
-
-#backlight.upper-medium {
-  color: @subtext1;
-}
-
-#backlight.high {
-  color: @text;
-}
-
-#pulseaudio.bluetooth {
-  color: @sapphire;
-}
-
-#pulseaudio.muted {
-  color: @surface2;
-}
-
-#pulseaudio {
-  color: @text;
-}
-
-#pulseaudio.low {
-  color: @overlay0;
-}
-
-#pulseaudio.lower-medium {
-  color: @overlay1;
-}
-
-#pulseaudio.medium {
-  color: @overlay2;
-}
-
-#pulseaudio.upper-medium {
-  color: @subtext0;
-}
-
-#pulseaudio.high {
-  color: @subtext1;
-}
-
-#systemd-failed-units {
-  color: @red;
+#taskbar button:hover {
+    background-color: @surface0;
 }
