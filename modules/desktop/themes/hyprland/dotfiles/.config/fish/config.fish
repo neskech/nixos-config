@@ -35,6 +35,8 @@ alias ngc14="sudo nix-collect-garbage --delete-older-than 14d"
 #   exec Hyprland
 # end
 
+# Sets libc path so that python and other guys can find it
+set -x LD_LIBRARY_PATH $NIX_LD_LIBRARY_PATH
 set -gx EDITOR hx
 set -gx VOLUME_STEP 5
 set -gx BRIGHTNESS_STEP 5
