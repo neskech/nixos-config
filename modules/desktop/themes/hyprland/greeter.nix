@@ -1,9 +1,6 @@
 { pkgs, lib, ... }:
 let
-  # Define the specific theme/cursor packages so we can use them in both places
-  # This ensures the folder name matches exactly what we install.
-  
-  # 1. Force the Macchiato Blue variant (Default catppuccin-gtk is Mocha)
+  # 1. Force the Macchiato Blue variant
   my-gtk-theme = pkgs.catppuccin-gtk.override {
     accents = [ "blue" ];
     variant = "macchiato";
@@ -21,28 +18,25 @@ in {
       fit = "Cover";
     };
     GTK = {
-      # THE CRITICAL FIXES:
-      # 1. Recent NixOS versions use lowercase names with "+default" suffix
-      theme_name = lib.mkForce "catppuccin-macchiato-blue-standard+default"; 
+      # THE FIX: Lowercase, no "+default", matches your ls output pattern exactly
+      theme_name = lib.mkForce "catppuccin-macchiato-blue-standard"; 
       
-      # 2. Cursor names are also often lowercase now
+      # FIX 2: Cursors usually follow the same lowercase pattern
       cursor_theme_name = lib.mkForce "catppuccin-macchiato-blue-cursors"; 
       
-      # 3. Use Papirus-Dark (ensure package is installed below)
       icon_theme_name = lib.mkForce "Papirus-Dark";
-      
       font_name = lib.mkForce "JetBrainsMono Nerd Font 12";
     };
   };
 
-  # ... (Keep your extraCss and greetd settings the same) ...
+  # ... (Keep extraCss and greetd settings same) ...
   programs.regreet.extraCss = ''
     .login-box {
       border-radius: 15px;
       padding: 20px;
     }
   '';
-  
+
   services.greetd = {
     enable = true;
     settings = {
@@ -55,12 +49,10 @@ in {
 
   users.users.greeter.extraGroups = [ "video" "render" ];
 
-  # INSTALL THE PACKAGES DEFINED ABOVE
+  # INSTALL THE PACKAGES
   environment.systemPackages = [
-    my-gtk-theme     # Installs the Macchiato Blue variant
-    my-cursor-theme  # Installs the Macchiato Blue cursor
+    my-gtk-theme
+    my-cursor-theme
     pkgs.papirus-icon-theme
-    # If you want the folder icons to match Catppuccin, add this too:
-    pkgs.catppuccin-papirus-folders 
   ];
 }
