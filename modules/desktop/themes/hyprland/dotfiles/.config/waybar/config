@@ -129,11 +129,19 @@
         "spacing": 4, 
         // 7) Bottom bar ONLY displays current time in center
         "modules-left": [],
-        "modules-center": ["clock#bottom"],
+        "modules-center": ["clock#time", "clock#day", "clock#month"],
         "modules-right": [],
     
-        "clock#bottom": {
-            "format": "{:%I:%M %p}", 
+        "clock#time": {
+            "format": "{:%I:%M %p}",
+            "tooltip-format": "<tt><small>{calendar}</small></tt>"
+        },
+        "clock#day": {
+            "format": "{:%A}", // Full Day Name
+            "tooltip-format": "<tt><small>{calendar}</small></tt>"
+        },
+        "clock#month": {
+            "format": "{:%h}", // Month Abbreviation
             "tooltip-format": "<tt><small>{calendar}</small></tt>"
         },
     },
@@ -150,22 +158,32 @@
         "margin-bottom": 10,
         
         // 6) Left bar ONLY displays current apps
-        "modules-left": ["wlr/taskbar"],
-        "modules-center": [],
+        "modules-left": [],
+        "modules-center": ["hyprland/workspaces"],
         "modules-right": [],
-    
-        "wlr/taskbar": {
+        
+        "hyprland/workspaces": {
+            "on-click": "activate",  
             "format": "{icon}",
-            "icon-size": 24,
-            "icon-theme": "Numix-Circle",
-            "tooltip-format": "{title}",
-            "on-click": "activate",
-            "on-click-right": "close",
-            "on-click-middle": "fullscreen",
-            "ignore-list": [
-                "wofi",
-                "rofi"
-            ]
+            "format-icons": {
+                "1": "󰲠",
+                "2": "󰲢",
+                "3": "󰲤",
+                "4": "󰲦",
+                "5": "󰲨",
+                "6": "󰲪",
+                "7": "󰲬",
+                "8": "󰲮",
+                "9": "󰲰",
+                "10": "󰿬",
+                "special": "",
+                "active": "",
+                "default": ""
+            },
+            "show-special": true,
+            "persistent-workspaces": {
+                "*": 5, // Shows 5 vertical workspaces by default
+            },
         },
     },
 ]

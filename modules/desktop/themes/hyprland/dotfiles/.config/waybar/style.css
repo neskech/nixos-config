@@ -10,7 +10,7 @@
 /* --- TOP BAR STYLING --- */
 window#waybar.top_bar {
     background-color: alpha(@base, 0.7);
-    border-bottom: 2px solid alpha(@surface1, 0.7);
+    border-bottom: solid alpha(@surface1, 0.7) 2;
     color: @text;
 }
 
@@ -90,19 +90,40 @@ window#waybar.top_bar {
 /* --- BOTTOM BAR STYLING --- */
 window#waybar.bottom_bar {
     background-color: alpha(@base, 0.7);
-    border-top: 2px solid alpha(@surface1, 0.7);
+    border-top: solid alpha(@surface1, 0.7) 2;
 }
 
-#clock.bottom {
+/* 1. Style the CONTAINER to look like the pill */
+window.bottom_bar .modules-center {
+    background-color: alpha(@surface0, 0.5);
+    border-radius: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    /* Optional: Add the blue glow to the box itself if you want */
+    box-shadow: 0px 0px 5px alpha(@blue, 0.3);
+}
+
+/* 2. Color the individual text parts */
+#clock.time {
     color: @blue;
     font-weight: bold;
     font-size: 16px;
-    padding: 0 15px;
-    text-shadow: 0px 0px 5px alpha(@blue, 0.5);
-    background-color: alpha(@surface0, 0.5);
-    border-radius: 15px;
-    margin-top: 4px;
-    margin-bottom: 4px;
+    margin-right: 10px; /* Space between time and day */
+}
+
+#clock.day {
+    color: @sapphire; /* Different color 1 */
+    font-weight: bold;
+    font-size: 16px;
+    margin-right: 10px; /* Space between day and month */
+}
+
+#clock.month {
+    color: @mauve; /* Different color 2 */
+    font-weight: bold;
+    font-size: 16px;
 }
 
 
@@ -113,18 +134,26 @@ window#waybar.left_bar {
     border-radius: 0 15px 15px 0;
 }
 
-#taskbar button {
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
+window.left_bar #workspaces {
+    background-color: transparent;
+    margin: 5px 0;
+}
+
+window.left_bar #workspaces button {
+    padding: 10px 0; /* Vertical padding */
+    margin: 2px 5px;
     color: @overlay0;
+    background-color: transparent;
 }
 
-#taskbar button.active {
-    background-color: @surface1;
-    color: @text;
+window.left_bar #workspaces button.active {
+    color: @peach;
+    background-color: alpha(@surface1, 0.5);
+    border-radius: 10px;
 }
 
-#taskbar button:hover {
+window.left_bar #workspaces button:hover {
     background-color: @surface0;
+    color: @text;
+    border-radius: 10px;
 }
