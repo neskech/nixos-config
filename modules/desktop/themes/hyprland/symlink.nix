@@ -53,23 +53,23 @@
   # Some programs have "Nix-native" configuration options
   programs.home-manager.enable = true;
   
-  programs.git = {
-    enable = true;
-    userName = "ness";
-    userEmail = "neskechastro@gmail.com";
+  # programs.git = {
+  #   enable = true;
+  #   userName = "ness";
+  #   userEmail = "neskechastro@gmail.com";
 
-    # ADD THIS SECTION:
-    extraConfig = {
-      credential = {
-        "https://github.com" = {
-          helper = "!${pkgs.gh}/bin/gh auth git-credential";
-        };
-        "https://gist.github.com" = {
-          helper = "!${pkgs.gh}/bin/gh auth git-credential";
-        };
-      };
-    };
-  };
+  #   # ADD THIS SECTION:
+  #   extraConfig = {
+  #     credential = {
+  #       "https://github.com" = {
+  #         helper = "!${pkgs.gh}/bin/gh auth git-credential";
+  #       };
+  #       "https://gist.github.com" = {
+  #         helper = "!${pkgs.gh}/bin/gh auth git-credential";
+  #       };
+  #     };
+  #   };
+  # };
 
   # Volume popup
   services.swayosd.enable = true;
