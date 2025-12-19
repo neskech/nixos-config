@@ -10,17 +10,10 @@
   services.dbus = {
     enable = true;
     implementation = "broker"; # High-performance replacement for traditional D-Bus
-    packages = with pkgs; [
-      xfce.xfconf   # Settings engine for XFCE apps (like Thunar)
-      gnome2.GConf  # Legacy settings engine for older applications
-    ];
   };
 
   # Allows chrome to start up because it wants to query battery level
   services.upower.enable = true;
-
-  # File Manager Backend: Stores settings for Thunar
-  programs.xfconf.enable = true;
 
   # File Manager: High-speed, lightweight file explorer
   programs.thunar.enable = true;

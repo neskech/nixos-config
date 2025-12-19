@@ -21,12 +21,31 @@ window#waybar.top_bar {
     margin-bottom: 4px;
 }
 
-#cpu, #memory, #disk {
+#cpu {
     background-color: alpha(@surface1, 0.7);
-    color: @sapphire;
+    color: @red; /* Changed to Red as requested */
     padding: 0 10px;
-    margin: 0 4px;
+    margin: 4px 4px;
     border-radius: 10px;
+    font-weight: bold;
+}
+
+#memory {
+    background-color: alpha(@surface1, 0.7);
+    color: @mauve; /* Purple for RAM */
+    padding: 0 10px;
+    margin: 4px 4px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+#disk {
+    background-color: alpha(@surface1, 0.7);
+    color: @blue; /* Blue for Disk */
+    padding: 0 10px;
+    margin: 4px 4px;
+    border-radius: 10px;
+    font-weight: bold;
 }
 
 /* Center: App Launchers */
