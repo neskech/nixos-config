@@ -3,7 +3,14 @@
 { inputs, pkgs, ... }:
 
 {
-  programs.fish.enable = true; # High-quality interactive shell
+  # High quality interactive shell
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      # Mirror the Nix-LD libraries to the standard LD path so Python can find them
+      set -gx LD_LIBRARY_PATH $NIX_LD_LIBRARY_PATH
+    '';
+  };
 
   environment.systemPackages = with pkgs; [
     # -- Terminals & Editors --

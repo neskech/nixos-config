@@ -15,6 +15,7 @@
     zlib              # Common dependency for numpy/torch
     glib              # Often needed by opencv/machine learning libs
     libGL             # Needed if you use cv2 (OpenCV)
+    cudaPackages.cudatoolkit # The full toolkit (headers/libraries)
   ];
 
 }
